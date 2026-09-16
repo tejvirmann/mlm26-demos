@@ -1,8 +1,36 @@
 {
+  "default": "parse",
   "servers": {
     "everything": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-everything"]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "parse": {
+      "type": "http",
+      "url": "https://api.parse.bot/mcp",
+      "headers": {
+        "X-API-Key": "${input:parseApiKey}"
+      }
     }
-  }
+  },
+  "inputs": [
+    {
+      "id": "parseApiKey",
+      "type": "promptString",
+      "description": "Parse API key (create one at https://parse.bot/settings)",
+      "password": true
+    }
+  ]
 }
